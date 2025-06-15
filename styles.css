@@ -61,17 +61,22 @@ h2 {
   margin-inline: auto;
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: repeat(4, 1fr);
 }
 
-.grid-col-span-2 {
-  grid-column: span 2;
+@media (min-width: 375px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .testimonial:last-child {
+    grid-column-start: 4;
+    grid-row: 1 / span 2;
+  }
+  .grid-col-span-2 {
+    grid-column: span 2;
+  }
 }
 
-.testimonial:last-child {
-  grid-column-start: 4;
-  grid-row: 1 / span 2;
-}
 .testimonial {
   font-size: var(--fs-400);
   padding: 2rem;
@@ -111,22 +116,5 @@ h2 {
   opacity: 0.7;
 }
 
-@media (min-width) {
-  .grid-col-span-2 {
-    grid-column: span 2;
-  }
-
-  .testimonial:last-child {
-    grid-column-start: 4;
-    grid-row: 1 / span 2;
-  }
-
-  .testimonial-grid {
-    padding-block: 2rem;
-    width: min(95%, 70rem);
-    margin-inline: auto;
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(4, 1fr);
-  }
+@media (min-width: 50em) {
 }
